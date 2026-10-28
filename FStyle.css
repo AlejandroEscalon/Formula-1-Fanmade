@@ -1,0 +1,605 @@
+:root {
+    --rojo: #e10600;
+    --rojo-hover: rgb(255, 30, 0);
+    --rojo-titulo: #ff4444;
+    --rojo-oscuro: #8b0000;
+    --borde-leyendas: #550000;
+    --borde-pilotos: #002897;
+
+    --fondo-nav: #161616;
+    --fondo-tarjeta: rgba(0, 0, 0, 0.81);
+    --fondo-tabla: rgba(0, 0, 0, 0.85);
+
+    --texto: white;
+    --texto-suave: rgba(255, 255, 255, 0.78);
+
+    --fuente-texto: Arial, Helvetica, sans-serif;
+    --fuente-titulos: 'Titillium Web', Arial, Helvetica, sans-serif;
+
+    --radio: 8px;
+    --espacio: 20px;
+}
+
+
+body {
+    margin: 0;
+    font-family: var(--fuente-texto);
+    background: #111;
+    color: var(--texto);
+    background-image: url("https://i.pinimg.com/originals/49/ca/fe/49cafe61f30e6da84ac47abfd7fbea9a.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+footer {
+    padding: 6.7px;
+    margin: 5px;
+    text-align: center;
+}
+
+em {
+    opacity: 0.85;
+}
+
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--fondo-nav);
+    padding: 15px 30px;
+    border-bottom: 4px solid rgba(165, 1, 1, 0.993);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+nav a {
+    color: var(--texto);
+    margin-left: var(--espacio);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.67s;
+}
+
+nav a:hover {
+    color: var(--rojo-hover);
+}
+
+body:not(:has(:target)) nav a[href="#Inicio"],
+body:has(#Inicio:target) nav a[href="#Inicio"],
+body:has(#historia:target) nav a[href="#historia"],
+body:has(#pilotos:target) nav a[href="#pilotos"],
+body:has(#equipos:target) nav a[href="#equipos"],
+body:has(#campeones:target) nav a[href="#campeones"],
+body:has(#carrera:target) nav a[href="#carrera"] {
+    text-decoration: underline;
+    text-decoration-color: var(--rojo);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+.Logo {
+    color: var(--rojo);
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: 2px;
+    font-family: var(--fuente-titulos);
+}
+
+.Logo span {
+    color: var(--texto);
+    font-size: 30px;
+    margin-left: -4px;
+}
+
+section {
+    display: none;
+    padding: 15px;
+    scroll-margin-top: 95px;
+}
+
+section:target {
+    display: block;
+}
+
+body:not(:has(:target)) #Inicio {
+    display: block;
+}
+
+section h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 0 var(--espacio);
+    padding-left: 14px;
+    border-left: 5px solid var(--rojo);
+}
+
+section > h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    color: var(--rojo-titulo);
+    margin: 28px 0 10px;
+}
+
+section > p {
+    max-width: 75ch;
+    line-height: 1.6;
+}
+
+.slogan {
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.85;
+}
+
+.notaActualizacion,
+.nota {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+
+.valor {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.etiqueta {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-suave);
+    margin-top: 4px;
+}
+
+.datosPortada {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.dato {
+    background: var(--fondo-tarjeta);
+    border-left: 4px solid var(--rojo);
+    padding: 14px 16px;
+}
+
+.dato .valor {
+    font-size: 2.2rem;
+    font-weight: 900;
+}
+
+.dato .etiqueta {
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+
+.estadisticas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 4px;
+}
+
+.estadisticas .valor {
+    font-size: 1.6rem;
+}
+
+.estadisticas.temporada .valor {
+    color: var(--color-equipo, var(--rojo-titulo));
+}
+
+.tituloEstadisticas {
+    margin: 14px 0 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--texto-suave);
+}
+
+.cardLeyendas,
+.cardPilotos,
+.cardEquipo,
+.cardHistoria {
+    background: var(--fondo-tarjeta);
+    border-radius: var(--radio);
+    padding: var(--espacio);
+    margin: var(--espacio) 0;
+}
+
+.cardLeyendas,
+.cardPilotos,
+.cardEquipo {
+    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardLeyendas:hover,
+.cardPilotos:hover,
+.cardEquipo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.cardLeyendas img,
+.cardPilotos img,
+.cardEquipo img {
+    margin-right: var(--espacio);
+    border-radius: var(--radio);
+    flex-shrink: 0;
+}
+
+.cardLeyendas img,
+.cardPilotos img {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.cardLeyendas img {
+    width: 235px;
+    height: 285px;
+}
+
+.cardPilotos img {
+    width: 150px;
+    height: 200px;
+}
+
+.cardEquipo img {
+    width: 200px;
+    height: 190px;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: var(--espacio);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.datosPersona {
+    flex: 1;
+    min-width: 0;
+}
+
+.datosPersona h2,
+.datosPersona h3 {
+    font-family: var(--fuente-titulos);
+    margin: 0 0 4px;
+}
+
+.datosPersona h2 {
+    font-size: 1.6rem;
+}
+
+.datosPersona h3 {
+    font-size: 1.35rem;
+}
+
+.detallePersona {
+    margin: 4px 0 8px;
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+
+.cardLeyendas {
+    border: 1px solid var(--borde-leyendas);
+}
+
+.cardPilotos {
+    border: 1px solid var(--borde-pilotos);
+}
+
+.listaPilotos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--espacio);
+}
+
+.listaLeyendas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--espacio);
+}
+
+.listaPilotos .cardPilotos {
+    margin: 0;
+}
+
+#listaHistoria {
+    position: relative;
+    padding-left: 28px;
+}
+
+#listaHistoria::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--rojo-oscuro);
+}
+
+.cardHistoria {
+    position: relative;
+    border-left: 5px solid #ff0000;
+}
+
+.cardHistoria::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 28px;
+    width: 12px;
+    height: 12px;
+    background: var(--rojo);
+}
+
+.cardHistoria h2 {
+    font-family: var(--fuente-titulos);
+    color: var(--rojo-titulo);
+    margin-top: 0;
+}
+
+.cardHistoria p {
+    line-height: 1.6;
+}
+
+.contenedorTabla, .contenedorCalendario {
+    overflow-x: auto;
+}
+
+.tablaCampeones {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    background: var(--fondo-tabla);
+    margin-top: var(--espacio);
+}
+
+.tablaCampeones th {
+    background: var(--rojo-oscuro);
+    color: var(--texto);
+    padding: 12px;
+}
+
+.tablaCampeones td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    font-variant-numeric: tabular-nums;
+}
+
+.tablaCampeones td:nth-child(2) {
+    text-align: left;
+    font-weight: bold;
+}
+
+.tablaCampeones td:first-child {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--rojo-titulo);
+}
+
+.tablaCampeones tr:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.contenedorCalendario {
+    background: rgba(15, 15, 15, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    margin-top: var(--espacio);
+}
+
+.tablaCalendario {
+    width: 100%;
+    min-width: 680px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.tablaCalendario th, .tablaCalendario td {
+    padding: 12px;
+    text-align: center;
+}
+
+.tablaCalendario th {
+    border-bottom: 2px solid var(--rojo);
+}
+
+.tablaCalendario tr:hover td {
+    background: rgba(255, 0, 0, 0.15);
+}
+
+.tablaCalendario td:first-child {
+    font-weight: bold;
+    color: var(--rojo-titulo);
+}
+
+.tablaCalendario tr.disputada td {
+    color: var(--texto-suave);
+}
+
+.tablaCalendario tr.disputada td:first-child {
+    color: var(--rojo-titulo);
+}
+
+.tablaCalendario tr.disputada strong {
+    color: var(--texto);
+}
+
+.tablaCalendario tr.proxima td {
+    background: rgba(225, 6, 0, 0.18);
+    font-weight: bold;
+}
+
+.tablaCalendario tr.proxima td:first-child {
+    box-shadow: inset 4px 0 0 var(--rojo);
+}
+
+.etiquetaSprint {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--rojo);
+    color: var(--rojo-titulo);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ferrari {
+    --color-equipo: red;
+}
+
+.redbull {
+    --color-equipo: blue;
+}
+
+.mercedes {
+    --color-equipo: silver;
+}
+
+.mclaren {
+    --color-equipo: orange;
+}
+
+.aston {
+    --color-equipo: green;
+}
+
+.williams {
+    --color-equipo: #00aaff;
+}
+
+.racingbulls {
+    --color-equipo: #4a6fd8;
+}
+
+.alpine {
+    --color-equipo: #ff87bc;
+}
+
+.haas {
+    --color-equipo: #f2f2f2;
+}
+
+.audi {
+    --color-equipo: #7d8793;
+}
+
+.cadillac {
+    --color-equipo: #d4af37;
+}
+
+.ferrari, .redbull, .mercedes, .mclaren, .aston, .williams, .racingbulls, .alpine, .haas, .audi, .cadillac {
+    border-left: 6px solid var(--color-equipo);
+}
+
+@media (max-width: 1000px) {
+
+    .listaPilotos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-wrap: wrap;
+        padding: 12px 15px;
+        gap: 8px;
+    }
+
+    nav > span {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 6px;
+    }
+
+    nav a:first-child {
+        margin-left: 0;
+    }
+
+    section h1 {
+        font-size: 1.5rem;
+    }
+
+    .cardLeyendas,
+    .cardPilotos,
+    .cardEquipo {
+        flex-direction: column;
+    }
+
+    .cardLeyendas img,
+    .cardPilotos img,
+    .cardEquipo img {
+        width: 100%;
+        margin: 0 0 var(--espacio);
+    }
+
+    .cardLeyendas img,
+    .cardPilotos img {
+        height: 280px;
+    }
+
+    .cardEquipo img {
+        height: 140px;
+    }
+
+    .contenedorCalendario {
+        padding: 12px;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cardLeyendas,
+    .cardPilotos,
+    .cardEquipo,
+    nav a {
+        transition: none;
+    }
+
+    .cardLeyendas:hover,
+    .cardPilotos:hover,
+    .cardEquipo:hover {
+        transform: none;
+    }
+}
