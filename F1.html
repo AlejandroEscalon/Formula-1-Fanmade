@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1</title>
+    <link rel="stylesheet" href="FStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+    <nav aria-label="Navegación principal">
+        <div class="Logo">Formula <span>1</span></div>
+        <span>
+            <a href="#Inicio">Inicio</a><a href="#historia">Historia</a><a href="#pilotos">Pilotos</a><a href="#equipos">Equipos de F1</a><a href="#campeones">Campeones</a><a href="#carrera">Carreras</a>
+        </span>
+    </nav>
+
+    <section id="Inicio">
+        <h1>Formula 1</h1>
+        <p class="slogan">“Donde cada segundo cuenta y cada curva puede cambiar la historia.”</p>
+        <div class="datosPortada" id="datosPortada"></div>
+        <p>La Fórmula 1 es la máxima categoría del automovilismo mundial, donde la velocidad, la tecnología y la estrategia se combinan para crear uno de los deportes más emocionantes del planeta. 
+            En cada carrera, los mejores pilotos compiten al límite en monoplazas de alto rendimiento, diseñados con ingeniería de precisión y capaces de alcanzar velocidades impresionantes. 
+            Más que solo conducir, este deporte exige concentración total, decisiones en segundos y un trabajo en equipo perfectamente coordinado. Cada detalle influye en el resultado: desde la aerodinámica del 
+            vehículo hasta las estrategias en pista.</p>
+            
+        <h2>¿Qué hace única a la Fórmula 1?</h2>
+        <p>La Fórmula 1 es única porque representa la competencia al más alto nivel del automovilismo mundial, donde solo los mejores pilotos y equipos logran participar y destacar. 
+            Cada carrera es una demostración de habilidad, precisión y resistencia física y mental. También se caracteriza por el uso de tecnología 
+            de última generación y estrategias complejas en tiempo real.</p>
+        <h2>Así va el campeonato 2026</h2>
+        <p class="notaActualizacion"></p>
+        <div class="contenedorTabla">
+            <table class="tablaCampeones">
+                <thead><tr><th>Pos.</th><th>Piloto</th><th>Equipo</th><th>Puntos</th></tr></thead>
+                <tbody id="datosClasificacion"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="historia"><h1>Historia de la Fórmula 1</h1><div id="listaHistoria"></div></section>
+
+    <section id="pilotos">
+        <h1>Leyendas de la Formula 1</h1><div id="listaLeyendas"></div>
+        <h1>Pilotos de la Formula 1 - 2026</h1>
+        <p class="notaActualizacion"></p>
+        <p class="nota">* Las estadísticas de carrera de los pilotos en activo no se han podido verificar con una fuente oficial; “—” indica un dato no verificado. Las de la temporada 2026 sí provienen de formula1.com.</p>
+        <div id="listaPilotos" class="listaPilotos"></div>
+    </section>
+
+    <section id="equipos"><h1>Escuderías de Fórmula 1 - 2026</h1><div id="listaEquipos"></div></section>
+
+    <section id="campeones">
+        <h1>Los Más Grandes de la Fórmula 1</h1>
+        <p>La Fórmula 1 ha visto pasar a muchos campeones legendarios, pero solo unos pocos han dominado las estadísticas históricas del deporte.</p>
+        <div class="contenedorTabla">
+            <table class="tablaCampeones">
+                <thead><tr><th>Pos.</th><th>Piloto</th><th>Títulos</th><th>Años de título</th><th>Victorias</th><th>Podios</th><th>Carreras</th></tr></thead>
+                <tbody id="datosCampeones"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="carrera">
+        <h1>Calendario Fórmula 1 2026</h1>
+        <p>La temporada 2026 incluye <strong id="totalGP">23</strong> Grandes Premios alrededor del mundo, con el debut del circuito urbano de Madrid (Gran Premio de España) y <strong id="totalSprint">6</strong> fines de semana Sprint. El Gran Premio de Bahréin se disputó en el circuito de Sepang, en Malasia.</p>
+        <p class="notaActualizacion"></p>
+        <div class="contenedorCalendario"><table class="tablaCalendario">
+            <thead><tr><th>Ronda</th><th>Fecha</th><th>Gran Premio</th><th>Circuito</th><th>Sprint</th><th>Podio</th></tr></thead>
+            <tbody id="datosCalendario"></tbody>
+        </table></div>
+    </section>
+</main>
+<footer><p>© 2003-2026 Formula One World Championship Limited</p></footer>
+<script src="FScript.js"></script>
+</body>
+</html>
